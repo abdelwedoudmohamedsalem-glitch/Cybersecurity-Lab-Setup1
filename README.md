@@ -228,13 +228,6 @@ The snapshot was used as a known-good recovery point. If a future
 experiment caused configuration problems, the VM could be restored to
 this baseline instead of rebuilding the laboratory from the beginning.
 
-Example snapshot:
-
-```text
-Clean Kali - Network Setup
-
-
----
 
 # 💡 What I Learned
 
