@@ -80,38 +80,29 @@ Additional target machines can be added to the same virtual network in future pr
 
 | 🧩 Component       | ⚙️ Configuration   |
 | ------------------ | ------------------  |
-| 🖥️ Host OS         | Windows 10         |
-| 🧠 Host RAM        | 8 GB               |
-| ⚡ Processor       | Intel Core i7      |
+| 🖥️ Host OS         | kali lunix         |
+| 🧠 Host RAM        | 16 GB               |
+| ⚡ Processor       | Intel Core i5       |
 | 🧰 Hypervisor      | VirtualBox 7.2  |
 | 🐉 Security OS     | Kali Linux 2026.2  |
 | 🧠 Kali RAM        | 2048 MB            |
 | 🌐 Virtual Network | NAT Network        |
 | 📡 Network Address | 10.0.0.0/24        |
-| 🐧 Kali IP Address | 10.0.0.2/24        |
+| 🐧 Kali IP Address | 10.0.0.3/24        |
 | 🚪 Default Gateway | 10.0.0.1           |
-| 🌍 DNS Server      | 8.8.8.8            |
-| 🔮 Future VM Range | 10.0.0.3–10.0.0.99 |
+| 🌍 DNS Server      | 8.8.4.4            |
+| 🔮 Future VM Range | 10.0.0.4–10.0.0.99 |
 
 ---
 
-# 🪜 Lab Setup Procedure
 
-## Step 1. Install 7-Zip
-
-7-Zip was installed to extract the Kali Linux virtual-machine package, which may be distributed as a `.7z` archive.
-
-**Tool:** 7-Zip
-
----
-
-## Step 2. Install VirtualBox
+## Step 1. Install VirtualBox
 
 VirtualBox was installed as the hypervisor.
 
 ---
 
-## Step 3. Create the NAT Network
+## Step 2. Create the NAT Network
 
 A dedicated NAT Network was created in VirtualBox.
 
@@ -130,7 +121,7 @@ This will allow future attacker and target VMs to communicate within the lab.
 
 ---
 
-## Step 4. Import Kali Linux
+## Step 3. Import Kali Linux
 
 The Kali Linux virtual machine was downloaded from the official Kali Linux website and imported into VirtualBox.
 
@@ -155,7 +146,7 @@ A shared folder was also configured for transferring required files between the 
 
 ---
 
-## Step 5. Configure the Kali Linux Network
+## Step 4. Configure the Kali Linux Network
 
 The Kali Linux network configuration was checked and configured with a consistent IPv4 address.
 
@@ -174,7 +165,7 @@ A consistent IP address makes it easier to document the lab and reference the Ka
 
 ---
 
-## Step 6. Create a Clean VM Snapshot
+## Step 7. Create a Clean VM Snapshot
 
 After completing the initial configuration, a VirtualBox snapshot was created.
 
@@ -206,13 +197,13 @@ If a future exercise changes or damages the VM configuration, the machine can be
 
 ```text
 IP Address:
-10.0.0.2/24
+10.0.0.3/24
 
 Gateway:
 10.0.0.1
 
 DNS:
-8.8.8.8
+8.8.4.4
 ```
 
 ---
@@ -221,36 +212,26 @@ DNS:
 
 Documenting problems is an important part of the project.
 
-## Problem 1. Internet Connectivity After Static IP Configuration
+## Problem : VM Configuration Became Unstable After Experimentation
 
-After manually configuring the IPv4 settings, Internet connectivity may fail depending on the Kali/NetworkManager configuration.
+During the laboratory setup and experimentation, changes to the virtual
+machine configuration could cause network or system settings to become
+unstable or incorrect. This created a risk of losing the working
+configuration and having to repeat the setup process.
 
-One workaround used during this lab was:
+### Solution
 
-```bash
-sudo nmcli connection modify "Wired connection 1" ipv4.dad-timeout 0
-```
+A clean VirtualBox snapshot was created after completing the initial
+configuration and verifying that the VM was working correctly.
 
-The network connection was then restarted/rebooted and connectivity was tested again.
+The snapshot was used as a known-good recovery point. If a future
+experiment caused configuration problems, the VM could be restored to
+this baseline instead of rebuilding the laboratory from the beginning.
 
-> **Important:** Network interface and connection names may differ between systems. Students should first identify their actual connection name before running an `nmcli` command.
+Example snapshot:
 
----
-
-## Problem 2. VirtualBox VT-x / Virtualization Error
-
-The VM initially failed to start because hardware virtualization was disabled in the system firmware/BIOS.
-
-The issue was resolved by:
-
-1. Restarting the computer.
-2. Entering BIOS/UEFI settings.
-3. Enabling Intel VT-x / hardware virtualization.
-4. Saving the configuration.
-5. Restarting the computer.
-6. Starting the Kali VM again.
-
-After enabling virtualization, the VM started successfully.
+```text
+Clean Kali - Network Setup
 
 
 ---
@@ -297,7 +278,6 @@ This laboratory is intended strictly for education purposes only.
 
 # 🔗 Tools & Resources
 
-- **7-Zip:** [https://7-zip.org/download.html](https://7-zip.org/download.html)
 - **VirtualBox:** [https://virtualbox.org/wiki/Downloads](https://virtualbox.org/wiki/Downloads)
 - **Kali Linux:** [https://kali.org/get-kali](https://kali.org/get-kali)
 
@@ -305,10 +285,10 @@ This laboratory is intended strictly for education purposes only.
 
 # 👤 Author
 
-**Waqas Karim**\
+**Mohamed Salem Abdel Wedoud*\
 Cybersecurity Professional B082
 
-LinkedIn: [https://www.linkedin.com/in/waqaskarim/](https://www.linkedin.com/in/waqaskarim/)
+LinkedIn: [https://www.linkedin.com/in/mohamed-salem-abdel-wedoud-a7bb9736b/](https://www.linkedin.com/in/mohamed-salem-abdel-wedoud-a7bb9736b/)
 
 ---
 
