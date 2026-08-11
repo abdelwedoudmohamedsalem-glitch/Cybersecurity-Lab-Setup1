@@ -168,6 +168,7 @@ A consistent IP address makes it easier to document the lab and reference the Ka
 ## Step 7. Create a Clean VM Snapshot
 
 After completing the initial configuration, a VirtualBox snapshot was created.
+![](5-screenshot-kali-snapshot.png)
 
 Example snapshot name:
 
