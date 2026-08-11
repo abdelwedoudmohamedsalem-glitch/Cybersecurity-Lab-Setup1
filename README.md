@@ -173,7 +173,7 @@ After completing the initial configuration, a VirtualBox snapshot was created.
 Example snapshot name:
 
 ```text
-Clean Kali - Network Setup
+Fresh kali lunix
 ```
 
 The snapshot represents the clean baseline of the laboratory.
